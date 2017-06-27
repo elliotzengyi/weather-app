@@ -14,14 +14,14 @@ p {
 .container {
     width: 375px;
     height: 667px;
-    background: url('https://cdn.dribbble.com/users/780072/screenshots/2227157/attachments/414102/Blood.png') no-repeat 50% 50%;
+    background: url('Blood.png') no-repeat 50% 50%;
     padding: 50px 20px 0;
     margin: 0 auto;
     text-align: center;
     box-sizing: border-box;
 }
 .bg-day {
-    background: url('https://cdn.dribbble.com/users/780072/screenshots/2227157/attachments/414101/Sun.png') no-repeat 50% 50%;
+    background: url('Sun.png') no-repeat 50% 50%;
 }
 
 #temp {
