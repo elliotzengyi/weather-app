@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>实时天气</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+</head>
+
+<body ontouchstart>
+	
+	<div class="container">
+
+		<div id="weatherBox">
+		
+    	<p id="city"></p>
+    	<p id="weather"></p>
+    	<p id="temp"></p>
+
+    </div>
+
+	</div>
+
+
+    <!-- 导入客户端ip查询 -->
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+    	var cityName = returnCitySN['cname'];
+
+    	/*
+    	var today = new Date();
+    	var hour = today.getHours();
+
+    	if (hour > 7 && hour < 19) {
+    		$('.container').addClass('bg-day');
+    	}
+    	*/
+
+      $.simpleWeather({
+          location: cityName,
+          woeid: '',
+          unit: 'c',
+          success: function(weather) {
+
+          	$('#temp').html(weather.temp + '&#176;');
+      			$("#weather").html(weather.currently);
+          	$("#city").html(cityName);
+
+          	$("#weatherBox p").addClass('animated fadeInDown');
+
+          },
+          error: function(error) {
+              $("#weatherBox").html('<p>' + error + '</p>');
+          }
+      });
+
+    });
+    </script>
+</body>
+
+</html>
