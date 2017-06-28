@@ -12,16 +12,18 @@ p {
   padding: 0;
 }
 .container {
-    width: 375px;
-    height: 667px;
-    background: url('Blood.png') no-repeat 50% 50%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('Blood.png');
+    background-size: cover;
     padding: 50px 20px 0;
     margin: 0 auto;
     text-align: center;
     box-sizing: border-box;
 }
 .bg-day {
-    background: url('Sun.png') no-repeat 50% 50%;
+    background-image: url('Sun.png');
 }
 
 #temp {
