@@ -25,25 +25,24 @@
 
 
     <!-- 导入客户端ip查询 -->
-    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function() {
 
-    	var cityName = returnCitySN['cname'];
-
-    	
     	var today = new Date();
     	var hour = today.getHours();
 
     	if (hour > 7 && hour < 19) {
     		$('.container').addClass('bg-day');
     	}
-    	
 
-      $.simpleWeather({
+    	$.getJSON("http://freegeoip.net/json/", function(ipdata) {
+
+    		var cityName = ipdata.city;
+
+    		$.simpleWeather({
           location: cityName,
           woeid: '',
           unit: 'c',
@@ -59,7 +58,9 @@
           error: function(error) {
               $("#weatherBox").html('<p>' + error + '</p>');
           }
-      });
+        });
+
+    	});
 
     });
     </script>
